@@ -8,14 +8,14 @@ const ContactList = () => {
   const contactName = useSelector(selectNameFilter);
   const contacts = useSelector(selectContacts);
   console.log(contacts);
-  // console.log(contactName);
-  // const searchUser = contacts.filter((contact) => {
-  //   return contact.name.toLowerCase().includes(contactName);
-  // });
+  console.log(contactName);
+  const searchUser = contacts.filter((contact) => {
+    return contact.name.toLowerCase().includes(contactName.toLowerCase());
+  });
 
   return (
     <ul className={css.contacts_list}>
-      {contacts.map((contact) => (
+      {searchUser.map((contact) => (
         <Contact key={contact.id} contact={contact} />
       ))}
     </ul>
